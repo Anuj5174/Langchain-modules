@@ -2,7 +2,10 @@ from langchain_community.document_loaders import PyPDFLoader
 
 loader = PyPDFLoader('dl-curriculum.pdf')
 
-docs = loader.load()
+docs = loader.lazy_load()
 
-print(docs[0].page_content)
-print(docs[1].metadata)
+for documents in docs:
+    print(documents.metadata)
+
+# print(docs[0].page_content)
+# print(docs[1].metadata)
